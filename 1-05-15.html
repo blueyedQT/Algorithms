@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title>Algorithm Challenge</title>
+	<script type="text/javascript"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	// min, max, average, count, median
+	x = [1,-2,3,4,-5];
+
+	var minimum = function(array) {
+		var min = array[0];
+		for(var i=0; i<array.length; i++) {
+			if(array[i]<min) {
+				min = array[i];
+			}
+		}
+		return min;
+	};
+
+	var maximum = function(array) {
+		var max = array[0];
+		for(var i=0; i<array.length; i++){
+			if(array[i]>max) {
+				max = array[i];
+			}
+		}
+		return max;
+	};
+
+	var average = function(array) {
+		var sum = 0;
+		for(var i=0; i<array.length; i++) {
+			sum+=array[i];
+		}
+		var avg = sum/array.length;
+		return avg;
+	};
+
+	var count = function(array) {
+		return array.length;
+	};
+
+	var median = function(array) {
+		var sort_array = array.sort;
+		console.log(sort_array);
+	};
+
+	var median = function(array) {
+        for(var i=0; i<array.length; i++) {
+          	for(var j=0; j<array.length-1; j++) {
+            	if(array[j]>array[j+1]) {
+              		temp = array[j];
+             		array[j] = array[j+1];
+              		array[j+1] = temp;
+            	}
+          	}
+        }
+        if(array.length%2 === 0) {
+            var k = array.length/2;
+            var middle = (array[k-1] + array[k])/2;
+            return middle;
+        } else {
+          	var middle = Math.floor(array.length/2);
+          	return array[middle];
+        }
+    };
+
+	console.log('Minimum: ', minimum(x));
+	console.log('Maximum: ', maximum(x));
+	console.log('Average: ', average(x));
+	console.log('Count: ', count(x));
+	console.log('Median: ', median(x));
+
+	</script>
+</body>
+</html>
