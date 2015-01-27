@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title></title>
+  <script>
+    function Item(num, next) {
+      this.num = num;
+      this.next = next;
+    }
+
+    var item10 = new Item(10);
+    var item5 = new Item(5, item10);
+    var item1 = new Item(1, item5);
+
+    obj = {
+      head: item1,
+      insertItems: function(item) {
+        var node = obj.head;
+        while(node.next.num < item.num) {
+          node = node.next;
+        }
+        var temp = node.next;
+        node.next = item;
+        item.next = temp;
+      },
+      removeAndReturnItem: function(num) {
+        var node = obj.head;
+        while(node.next.num < num) {
+          node = node.next;
+        }
+        node.next = null;
+      }
+    }
+
+    var item7 = new Item(7);
+    obj.insertItems(item7);
+    var node = obj.head;
+    while(node.next) {
+      console.log(node.num);
+      node = node.next;
+    }
+    console.log(node.num);
+
+    obj.removeAndReturnItem(8);
+    var node = obj.head;
+    while(node.next) {
+      console.log(node.num);
+      node = node.next;
+    }
+    console.log(node.num);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
